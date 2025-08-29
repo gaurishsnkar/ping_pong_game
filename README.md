@@ -23,70 +23,53 @@ Piezo                 1
 
 **PROJECT DESCRIPTION & WORKING**
 
-The Arduino UNO Ping Pong Game v2.0 simulates a two-player ping pong game on an LCD
-screen with sound effects and LED feedback. Here's a detailed explanation of its working:
+The Arduino UNO Ping Pong Game v2.0 simulates a two-player ping pong game on an LCD screen with sound effects and LED feedback. Here's a detailed explanation of its working:
 
 1. Setting Up:
 
-• The code starts by including necessary libraries for LCD communication
-(LiquidCrystal) and NeoPixel LED control (Adafruit_NeoPixel).
-• It defines pins connected to various components like push buttons (up/down for each
-player, start button), piezo buzzer, and NeoPixel LED strips (one for each player).
-• During setup, it initializes the LCD screen, displays a title screen, and shows a
-message asking the player to press the start button.
+• The code starts by including necessary libraries for LCD communication (LiquidCrystal) and NeoPixel LED control (Adafruit_NeoPixel).
+• It defines pins connected to various components like push buttons (up/down for each player, start button), piezo buzzer, and NeoPixel LED strips (one for each player).
+• During setup, it initializes the LCD screen, displays a title screen, and shows a message asking the player to press the start button.
 
 2. Game Start:
 
-• Once the start button is pressed, the code clears the screen and displays player
-scores (initially 0).
+• Once the start button is pressed, the code clears the screen and displays player scores (initially 0).
 • It then shows a countdown animation (optional) to build anticipation.
+
 
 3. Gameplay Loop:
 
 • The main loop (loop()) continuously runs and checks for various conditions.
-
 • It constantly checks if the player paddles are being controlled using the up/down buttons for each player. Separate functions (paddle1Up(), paddle1Down(), paddle2Up(), paddle2Down()) handle these movements within the allowed boundaries on the LCD display.
 
 4. Ball Movement and Collisions:
 
 • The code keeps track of the ball's position (x) on the LCD screen.
-
 • It also maintains a variable (bounce) to indicate the ball's direction (up or down).
-
 • Another variable (direction) stores whether the ball is moving left ('L') or right ('R').
 
 
 *Ball Movement:*
 
 • Depending on the direction variable, separate functions (ballLeftDown(), ballLeftUp(), ballRightDown(), ballRightUp()) are called to update the ball's position on the LCD display.
-
-
 • These functions consider bounce direction and adjust the ball's position accordingly. They also handle edge detection (top/bottom of the screen) and update the bounce variable if needed.
 
 
 *Collision Detection:*
 
 • The code checks if the ball's position (x) coincides with the player paddles' locationon the LCD (paddle1 and paddle2 arrays).
-
 • Separate variables (v1, v2, v3) are used to store the values of the ball and paddlesegments at the collision point.
-
 • If a collision is detected (matching values of v1 and v2 for player 1 or v1 and v3 forplayer 2), the ball's direction changes ('L' to 'R' or vice versa).
-
 • The player who successfully hits the ball receives a point, and a sound effect is playedusing the piezo buzzer (piezoSound() function).
 
 5. Game Over and Restart:
 
 • If the ball goes past a player's paddle (no collision detection), the game ends.
-
 • The code displays a "Game Over" message with the winning player's announcement on the LCD.
-
 • Winner indication is also provided visually using NeoPixel LEDs (one strip lights up green for the winner, red for the loser) along with a sound effect.
-
-
 • After a short delay, scores are reset to zero, and the game restarts, waiting for the start button to be pressed again.
 
-_**CONNECTIONS
-**_
+_**CONNECTIONS**_
 
 **Arduino UNO Connections:**
 
