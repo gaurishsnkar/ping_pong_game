@@ -3,8 +3,6 @@ The Arduino UNO Ping Pong Game v2.0 simulates a two-player ping pong game on an 
 
 **INTRODUCTION**
 
-Name: Gauri Shankar
-
 College Name: Government Engineering College Arwal
 
 Project Name: Ping-Pong Game using Arduino Uno
